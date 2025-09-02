@@ -18,11 +18,12 @@ class TestBuild:
         host_ip = os.getenv("HOST_IP", "localhost")
         test_port = os.getenv("TEST_PORT", "8502")
 
-        # Start Streamlit server in background
+        # Start Streamlit server in background using .venv python
+        python_executable = os.path.join(project_root, ".venv", "bin", "python")
         process = subprocess.Popen(
             [
-                "poetry",
-                "run",
+                python_executable,
+                "-m",
                 "streamlit",
                 "run",
                 app_path,
