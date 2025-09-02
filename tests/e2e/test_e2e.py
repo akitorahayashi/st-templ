@@ -27,10 +27,12 @@ class TestE2E:
 
         app_path = os.path.join(project_root, "src", "main.py")
 
+        # Start Streamlit server in background using .venv python
+        python_executable = os.path.join(project_root, ".venv", "bin", "python")
         process = subprocess.Popen(
             [
-                "poetry",
-                "run",
+                python_executable,
+                "-m",
                 "streamlit",
                 "run",
                 app_path,
@@ -130,10 +132,12 @@ class TestE2E:
 
         app_path = os.path.join(project_root, "src", "main.py")
 
+        # Start Streamlit server in background using .venv python
+        python_executable = os.path.join(project_root, ".venv", "bin", "python")
         process = subprocess.Popen(
             [
-                "poetry",
-                "run",
+                python_executable,
+                "-m",
                 "streamlit",
                 "run",
                 app_path,
