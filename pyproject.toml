@@ -1,5 +1,5 @@
 [project]
-name = "st-templ"
+name = "st-tmpl"
 version = "0.1.0"
 description = "A template structure for a Streamlit application."
 authors = [{name = "akitorahayashi", email = "atora.has75@gmail.com"}]

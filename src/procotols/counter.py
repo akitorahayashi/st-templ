@@ -23,7 +23,7 @@ class CounterProtocol(Protocol):
         Decrements the count by one.
 
         Raises:
-            ValueError: If the count is already zero and cannot be decremented further.
+            ValueError: If the count is already zero.
         """
         ...
 

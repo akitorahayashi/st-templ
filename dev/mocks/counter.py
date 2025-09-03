@@ -10,6 +10,8 @@ class MockCounter(CounterProtocol):
     reset_call_count: int
 
     def __init__(self, initial_count: int = 0):
+        if initial_count < 0:
+            raise ValueError("Initial count cannot be negative.")
         self._count = initial_count
         self.increment_call_count = 0
         self.decrement_call_count = 0
@@ -26,8 +28,10 @@ class MockCounter(CounterProtocol):
 
     def decrement(self) -> None:
         """Decrements the count and tracks the call."""
-        self._count -= 1
         self.decrement_call_count += 1
+        if self._count <= 0:
+            raise ValueError("Count cannot go below zero.")
+        self._count -= 1
 
     def reset(self) -> None:
         """Resets the count and tracks the call."""
