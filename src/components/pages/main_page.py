@@ -1,4 +1,5 @@
 import streamlit as st
+
 from src.router import Page
 
 
@@ -14,6 +15,9 @@ def render_main_page():
     except FileNotFoundError:
         # Continue without custom styling if the CSS file is not found
         pass
+
+    # Clear previous content when navigating between pages
+    st.empty()
 
     st.title("🎉 Hello Streamlit!")
 

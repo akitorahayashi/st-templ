@@ -1,4 +1,5 @@
 import streamlit as st
+
 from src.router import Page
 
 
@@ -6,6 +7,9 @@ def render_another_page():
     """
     Renders the another page of the application.
     """
+    # Clear previous content when navigating between pages
+    st.empty()
+
     st.title("Another Page")
     st.write("Welcome to the another page!")
 

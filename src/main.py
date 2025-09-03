@@ -1,11 +1,12 @@
 import streamlit as st
-from src.router import AppRouter, Page
+
 from src.components.navigations import render_sidebar
 from src.components.pages import (
-    render_main_page,
     render_another_page,
+    render_main_page,
     render_sub_page,
 )
+from src.router import AppRouter, Page
 
 
 def main():

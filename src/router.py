@@ -1,4 +1,5 @@
 from enum import Enum, auto
+
 import streamlit as st
 
 
@@ -6,6 +7,7 @@ class Page(Enum):
     """
     Enumeration for the different pages in the application.
     """
+
     MAIN = auto()
     ANOTHER = auto()
     SUB = auto()
