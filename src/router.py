@@ -9,7 +9,7 @@ class Page(Enum):
     """
 
     MAIN = auto()
-    ANOTHER = auto()
+    RESULT = auto()
     SUB = auto()
 
 

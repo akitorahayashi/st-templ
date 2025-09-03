@@ -25,10 +25,19 @@ def render_main_page():
         "This is a simple application to demonstrate a clean and scalable project structure."
     )
 
+    counter = st.session_state.counter
+
+    st.write(f"Current counter value: {counter.get_count()}")
+
+    # Button to increment the counter
+    if st.button("Increment Counter"):
+        counter.increment()
+        st.rerun()
+
     app_router = st.session_state.app_router
 
-    if st.button("Go to Another Page", type="primary"):
+    if st.button("Go to Result Page", type="primary"):
         # Update the page state in the router
-        app_router.go_to(Page.ANOTHER)
+        app_router.go_to(Page.RESULT)
         # Rerun the script to reflect the page change
         st.rerun()

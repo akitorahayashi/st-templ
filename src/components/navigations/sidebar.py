@@ -7,7 +7,6 @@ def render_sidebar():
     """
     Renders the sidebar for navigation.
     """
-    st.sidebar.title("Navigation")
     app_router: AppRouter = st.session_state.app_router
 
     pages = {
@@ -25,10 +24,11 @@ def render_sidebar():
     )
 
     selection = st.sidebar.radio(
-        "",
+        "Navigation",
         options=list(pages.keys()),
         key="sidebar_navigation",
         index=list(pages.keys()).index(current_page_label),
+        label_visibility="collapsed",
     )
 
     if pages[selection] != app_router.current_page:
