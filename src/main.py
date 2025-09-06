@@ -14,6 +14,14 @@ from src.router import AppRouter, Page
 
 load_dotenv()
 
+st.set_page_config(
+    page_title="My App",
+    page_icon="✨",
+    # "centered"/"wide"
+    layout="centered",                   
+    # "auto"/"expanded"/"collapsed"
+    initial_sidebar_state="collapsed" 
+)
 
 def main():
     """
