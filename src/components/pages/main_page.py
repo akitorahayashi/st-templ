@@ -25,4 +25,4 @@ if st.button("Increment Counter"):
     st.rerun()
 
 if st.button("Go to Result Page", type="primary"):
-    st.switch_page("src/components/pages/result_page.py")
+    st.switch_page("components/pages/result_page.py")

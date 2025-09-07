@@ -3,6 +3,7 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 
+from src.components.navigations.sidebar import render_sidebar
 from src.models.counter import Counter
 
 load_dotenv()
@@ -26,14 +27,18 @@ def main():
     # st.navigationでページのリストを定義
     pg = st.navigation(
         [
-            st.Page("src/components/pages/main_page.py", title="Main", default=True),
-            st.Page("src/components/pages/sub_page.py", title="Sub"),
-            st.Page("src/components/pages/result_page.py", title="Result"),
-        ]
+            st.Page("components/pages/main_page.py", title="Main", default=True),
+            st.Page("components/pages/sub_page.py", title="Sub"),
+            st.Page("components/pages/result_page.py", title="Result"),
+        ],
+        position="hidden",
     )
 
     # アプリケーションを実行
     pg.run()
+
+    # Render sidebar
+    render_sidebar()
 
 
 def initialize_session():

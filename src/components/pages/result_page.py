@@ -11,4 +11,4 @@ else:
     st.write(f"Counter value from session state: {counter.get_count()}")
 
 if st.button("Back to Main"):
-    st.switch_page("src/components/pages/main_page.py")
+    st.switch_page("components/pages/main_page.py")
