@@ -1,7 +1,7 @@
 import pytest
 
 from src.models.counter import Counter
-from src.procotols.counter import CounterProtocol
+from src.protocols.counter import CounterProtocol
 
 
 @pytest.fixture

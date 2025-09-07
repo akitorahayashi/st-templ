@@ -1,4 +1,4 @@
-from src.procotols.counter import CounterProtocol
+from src.protocols.counter import CounterProtocol
 
 
 class MockCounter(CounterProtocol):
