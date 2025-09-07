@@ -10,13 +10,10 @@ __pycache__/
 *.so
 
 # Environments
-.env
-.env.*
-# .env.exampleはバージョン管理に含める
-!.env.example
 .venv
 env/
 venv/
+.streamlit/secrets.toml
 
 # Package Distribution
 .eggs/

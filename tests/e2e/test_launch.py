@@ -4,9 +4,20 @@ import time
 from typing import Optional
 
 import requests
-from dotenv import load_dotenv
+import toml
 
-load_dotenv()
+
+def load_secrets(secrets_file: str = ".streamlit/secrets.toml") -> dict:
+    """Load secrets from a TOML file."""
+    try:
+        with open(secrets_file, "r") as f:
+            return toml.load(f)
+    except FileNotFoundError:
+        print(f"Warning: '{secrets_file}' not found. Using default values.")
+        return {}
+    except Exception as e:
+        print(f"Error loading '{secrets_file}': {e}")
+        return {}
 
 
 class StreamlitE2ETest:
@@ -22,8 +33,10 @@ class StreamlitE2ETest:
     ):
         self.app_path = app_path
         self.main_module = main_module
-        self.test_port = test_port or os.getenv("TEST_PORT", "8502")
-        self.host_ip = host_ip or os.getenv("HOST_IP", "localhost")
+
+        secrets = load_secrets()
+        self.test_port = test_port or secrets.get("TEST_PORT", "8502")
+        self.host_ip = host_ip or secrets.get("HOST_IP", "localhost")
 
         self.project_root = os.path.dirname(
             os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

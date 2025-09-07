@@ -1,12 +1,7 @@
-import os
-
 import streamlit as st
-from dotenv import load_dotenv
 
 from src.components.navigations.sidebar import render_sidebar
 from src.models.counter import Counter
-
-load_dotenv()
 
 st.set_page_config(
     page_title="My App",
@@ -44,7 +39,7 @@ def main():
 def initialize_session():
     """Initializes the session state."""
     if "counter" not in st.session_state:
-        is_debug = os.getenv("DEBUG", "false").lower() in ("true", "1", "yes", "on")
+        is_debug = st.secrets.get("DEBUG", False)
         if is_debug:
             from dev.mocks.counter import MockCounter
 
