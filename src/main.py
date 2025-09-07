@@ -3,14 +3,7 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 
-from src.components.navigations import render_sidebar
-from src.components.pages import (
-    render_main_page,
-    render_result_page,
-    render_sub_page,
-)
 from src.models.counter import Counter
-from src.router import AppRouter, Page
 
 load_dotenv()
 
@@ -30,25 +23,21 @@ def main():
     """
     initialize_session()
 
-    app_router = st.session_state.app_router
+    # st.navigationでページのリストを定義
+    pg = st.navigation(
+        [
+            st.Page("src/components/pages/main_page.py", title="Main", default=True),
+            st.Page("src/components/pages/sub_page.py", title="Sub"),
+            st.Page("src/components/pages/result_page.py", title="Result"),
+        ]
+    )
 
-    # Render sidebar for navigation
-    render_sidebar()
-
-    # Page routing
-    if app_router.current_page == Page.MAIN:
-        render_main_page()
-    elif app_router.current_page == Page.RESULT:
-        render_result_page()
-    elif app_router.current_page == Page.SUB:
-        render_sub_page()
+    # アプリケーションを実行
+    pg.run()
 
 
 def initialize_session():
     """Initializes the session state."""
-    if "app_router" not in st.session_state:
-        st.session_state.app_router = AppRouter()
-
     if "counter" not in st.session_state:
         is_debug = os.getenv("DEBUG", "false").lower() in ("true", "1", "yes", "on")
         if is_debug:
