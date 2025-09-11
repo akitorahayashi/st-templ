@@ -6,7 +6,7 @@ This repository is a template for building Streamlit applications.
 
 1.  **Initial Setup**
 
-    Run the setup command to install dependencies and create the `.env` file from the example.
+    Run the setup command to install dependencies and create the `.streamlit/secrets.toml` file from the example.
 
     ```bash
     make setup
@@ -14,7 +14,7 @@ This repository is a template for building Streamlit applications.
 
 2.  **Environment Configuration**
 
-    Modify the `.env` file with your local configuration, such as the host ip and ports.
+    Modify the `.streamlit/secrets.toml` file with your local configuration, such as the host ip and ports.
 
 3.  **Launch Application**
 
